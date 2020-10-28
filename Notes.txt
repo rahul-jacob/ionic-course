@@ -1,0 +1,4 @@
+- Issue One
+	[ERROR] ng has unexpectedly closed (exit code 127).
+  Resolution
+	npm install @ionic/app-scripts@latest --save-dev
