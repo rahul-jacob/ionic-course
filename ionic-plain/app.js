@@ -1,7 +1,17 @@
 const reasonInput = document.querySelector('#input-reason');
 const amountInput = document.querySelector('#input-amount');
-const cancelBtn = document.querySelector('#btn-cancel');
+const cancelBtn = document.querySelector('#btn-clear');
 const confirmBtn = document.querySelector('#btn-confirm');
+const expenseList = document.querySelector('#expenses-list');
+const totalExpense = document.querySelector('#total-expense');
+
+let expenseSum = 0;
+totalExpense.textContent=expenseSum;
+
+const clear = () =>{
+    reasonInput.value = '';
+    amountInput.value = '';
+};
 
 confirmBtn.addEventListener('click',()=>{
     const txtReason = reasonInput.value;
@@ -10,8 +20,13 @@ confirmBtn.addEventListener('click',()=>{
         console.log('Negative Scenario Reason or Amount is blank');
         return
     }
-    console.log(txtReason);
-    console.log(txtAmount);
-    console.log('txtReason and txtAmount is not empty');
+    const newItem = document.createElement('ion-item');
+    newItem.textContent = txtReason + " -  "+txtAmount;
+    expenseList.appendChild(newItem);
+    expenseSum+= +txtAmount;
+    totalExpense.textContent=expenseSum;
+    clear();
 
 });
+
+cancelBtn.addEventListener('click',clear);
