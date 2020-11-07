@@ -1,4 +1,27 @@
+Install ionic cli
+	npm install -g ionic
+To Create a new ionic project
+	ionic start
+To run an ionic project
+	ionic serve
+
+Extensions Installed in VS
+	- Angular Essentials (John Papa)
+	- Material Icon Theme (Philip Kief)
+
 - Issue One
 	[ERROR] ng has unexpectedly closed (exit code 127).
   Resolution
 	npm install @ionic/app-scripts@latest --save-dev
+
+- Issue Two
+	ionic : File C:\Users\erahu\AppData\Roaming\npm\ionic.ps1 cannot be loaded because running scripts is disabled on this system.
+	
+	This could be due to the current user having an undefined ExecutionPolicy.
+
+Resolution
+  	If you are using visual studio code:
+    	1.Open terminal
+    	2.Run the command: Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
+    	3.Then run the command protractor conf.js
+	While doing step 1 & 2 i was able to start the ionic server by giving the command ionic serve and the app opened in http://localhost:8100
