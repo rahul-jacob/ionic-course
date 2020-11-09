@@ -25,3 +25,16 @@ Resolution
     	2.Run the command: Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
     	3.Then run the command protractor conf.js
 	While doing step 1 & 2 i was able to start the ionic server by giving the command ionic serve and the app opened in http://localhost:8100
+
+Generating modules using angular cli
+	Component
+	- ng generate component recipies
+
+Generating modules using ionic cli
+	General command
+	- ionic generate
+		opens the wizard to complete the setup
+	Page	
+	- ionic generate page recipies/recipie-detail	
+	Service
+	- 
