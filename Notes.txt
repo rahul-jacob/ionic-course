@@ -19,13 +19,17 @@ Extensions Installed in VS
 	
 	This could be due to the current user having an undefined ExecutionPolicy.
 
-Resolution
+  Resolution
   	If you are using visual studio code:
     	1.Open terminal
     	2.Run the command: Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
     	3.Then run the command protractor conf.js
 	While doing step 1 & 2 i was able to start the ionic server by giving the command ionic serve and the app opened in http://localhost:8100
-
+- Issue Three
+	Cannot find module '@angular-devkit/build-angular/package.json'
+  Resolution
+	npm install --save-dev @angular-devkit/build-angular
+	
 Generating modules using angular cli
 	Component
 	- ng generate component recipies
