@@ -24,7 +24,26 @@ export class RecipiesService {
  ];
   constructor() { }
 
-  getRecipies(){
+  getRecipies(): Recipie[]{
     return [...this.recipieList];
   }
+
+  /*getRecipiesById(recipieId: String): Recipie{
+    console.log("4 "+recipieId);
+    this.recipieList.filter((obj)=>{
+      if(obj.id === recipieId){
+        console.log("5");
+        console.log("6 "+obj.name)
+        return obj;
+      }
+    });
+    return null;
+  }*/
+  getRecipiesById(recipieId: String): Recipie{
+    return {...this.recipieList.find((obj) => {
+      if(obj.id===recipieId){
+        return true;
+      }
+    })}
+  }  
 }
