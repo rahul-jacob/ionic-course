@@ -1,6 +1,13 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>recipie-detail</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>{{selectedRecipie.name}}</ion-title>
+    <ion-buttons slot="start">
+      <!--<ion-back-button defaultHref="/recipie"></ion-back-button>-->
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-button slot="end" (click)="deleteRecipie(selectedRecipie.id)">
+      <ion-icon class=".ion-float-right" name="trash-bin-outline"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 

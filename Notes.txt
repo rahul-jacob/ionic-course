@@ -42,3 +42,6 @@ Generating modules using ionic cli
 	- ionic generate page recipies/recipie-detail	
 	Service
 	- 
+
+Ionic Icons
+	- https://ionicons.com/

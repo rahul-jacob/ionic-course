@@ -44,6 +44,16 @@ export class RecipiesService {
       if(obj.id===recipieId){
         return true;
       }
-    })}
+    })
+    }
+  }
+  deleteRecipie(recipieId: String){
+    console.log("delete service "+recipieId);
+    let list = [...this.recipieList];
+    list.splice((+recipieId-1),1);//Casting a String to number
+    console.log(list.length);
+    console.log(list);
+    return list;
+
   }  
 }

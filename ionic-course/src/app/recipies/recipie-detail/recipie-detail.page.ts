@@ -36,4 +36,12 @@ export class RecipieDetailPage implements OnInit {
       });
   }
 
+  deleteRecipie(recipieId: String){
+    console.log("recipieId "+recipieId)
+        console.log("Delete End");
+    console.log("Delete End");
+    console.log(this.recipieService.deleteRecipie(recipieId));
+    console.log("Delete End");
+  } 
+
 }

@@ -7,7 +7,7 @@
 <ion-content>
   <ion-list>
     <ion-list-header>Top Recipies</ion-list-header>
-    <ion-item *ngFor="let recipie of recipieList">
+    <ion-item *ngFor="let recipie of recipieList" [routerLink]="['/recipies',recipie.id]">
       <ion-avatar slot="start">
         <img src={{recipie.image}}>
       </ion-avatar>
