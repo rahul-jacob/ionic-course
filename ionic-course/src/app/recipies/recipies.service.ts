@@ -42,18 +42,29 @@ export class RecipiesService {
   getRecipiesById(recipieId: String): Recipie{
     return {...this.recipieList.find((obj) => {
       if(obj.id===recipieId){
-        return true;
+        return true;//return the item if true.
       }
     })
     }
   }
-  deleteRecipie(recipieId: String){
+  /*deleteRecipie(recipieId: String){
     console.log("delete service "+recipieId);
     let list = [...this.recipieList];
     list.splice((+recipieId-1),1);//Casting a String to number
     console.log(list.length);
     console.log(list);
     return list;
+  } */ 
 
-  }  
+  onDelete(recipieId: String){
+    console.log("In list service "+recipieId);
+    this.recipieList = this.recipieList.filter((obj) => {
+      if(recipieId !== obj.id){//returns false if we want to remove the element
+        console.log("In if true "+obj.id);
+      }else{
+        console.log("In if false "+obj.id);
+      }
+    });
+    console.log("List "+this.recipieList);
+  }
 }

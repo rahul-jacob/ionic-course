@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
+import { CANCELLED } from 'dns';
 import { Recipie } from '../recipie.model';
 import { RecipiesService } from '../recipies.service';
 
@@ -13,35 +15,49 @@ export class RecipieDetailPage implements OnInit {
   private activatedRoute: ActivatedRoute;
   private recipieService: RecipiesService;
   public selectedRecipie: Recipie;
-  constructor(activatedRoute: ActivatedRoute, recipieService: RecipiesService) {
+  private router: Router;
+  private alertController: AlertController;
+  constructor(activatedRoute: ActivatedRoute, recipieService: RecipiesService, router: Router,alertController: AlertController) {
     this.activatedRoute = activatedRoute;
     this.recipieService = recipieService;
+    this.router = router;
+    this.alertController = alertController;
    }
 
   ngOnInit() {
-    console.log(1);
     this.activatedRoute.paramMap.subscribe((paramMap) => {
         if(!paramMap.has('recipeId')){
           return;
         }
-        console.log(2);
         const recipieKey = paramMap.get('recipeId');
-        console.log("3 "+recipieKey);
         this.selectedRecipie = this.recipieService.getRecipiesById(recipieKey);
-        console.log("image "+this.selectedRecipie.image);
-        console.log("id "+this.selectedRecipie.id);
-        console.log("name "+this.selectedRecipie.name);
-        console.log("ingredient "+this.selectedRecipie.ingredient);
-        console.log("time "+this.selectedRecipie.time);
       });
   }
 
   deleteRecipie(recipieId: String){
-    console.log("recipieId "+recipieId)
-        console.log("Delete End");
-    console.log("Delete End");
-    console.log(this.recipieService.deleteRecipie(recipieId));
-    console.log("Delete End");
+    this.alertController.create({
+      header : 'Delete Recipie"',
+      message : 'Are you sure you want to delete the recipie ?',
+      buttons : [
+        {
+        text: 'Cancel',
+        role: 'cancel'
+      },
+      {
+        text: 'Delete',
+        handler: () =>{
+          console.log("Delete `Start "+recipieId);
+          console.log(this.recipieService.onDelete(recipieId));
+          console.log("Delete End");
+          console.log("Navigating to recipie main page");
+          this.router.navigate(['/recipies']);
+        }
+      }
+    ]
+    }).then(alertElement => {
+      alertElement.present();
+    });
+
   } 
 
 }
