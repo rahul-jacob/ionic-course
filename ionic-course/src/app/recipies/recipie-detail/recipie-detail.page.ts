@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { CANCELLED } from 'dns';
 import { Recipie } from '../recipie.model';
 import { RecipiesService } from '../recipies.service';
 

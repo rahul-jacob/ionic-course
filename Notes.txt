@@ -9,6 +9,69 @@ Extensions Installed in VS
 	- Angular Essentials (John Papa)
 	- Material Icon Theme (Philip Kief)
 
+Generating modules using angular cli
+	Component
+	- ng generate component recipies
+
+Generating modules using ionic cli
+	General command
+	- ionic generate
+		opens the wizard to complete the setup
+	Page	
+	- ionic generate page recipies/recipie-detail	
+	Service
+	- 
+
+Ionic Icons
+	- https://ionicons.com/
+
+Capacitor Website
+	- https://capacitor.ionicframework.com
+
+- Building angular appln to native app
+	- ng build
+	So when ever we are going to build a native app, we need to execute the ng build command. Because we are going to wrap our finished
+	mobile app into a native mobile app.	
+
+- Using ionic cli we add basically add android as a supportive platform in our project
+	- ionic capacitor add android
+
+Change the package index
+	To change the package id, go to the file capacitor.config.json, there you provide a valid identifier to appId. Basically we provide
+	the reverse url. This is basically used to differentiate app deployed in the store.
+
+- After creating a new build using ng build, we need to execute the below command
+	- ionic capacitor copy android
+	because ionic capacitor, copies the www folder into the android folder (which is the native app) and bundle it into again.
+	This command which should be executed each time when you do an ng build, because ionic capacitor copy android copy your www folder
+	into the native app and bundle it again. This is a command you should run before you run the native app and see it. 
+	- ionic capacitor run android
+	What this command will do is it will execute all the previous steps for us essentially it will run
+			- ng build
+			- ionic capacitor add android
+			- ionic capacitor copy android
+			- Finally this will open the folder in android studio
+	We also have the -l option run live i.e reload the android app in emulator each time when we do a change.
+			ionic capacitor run android -l
+- Running the App on a Real Android Device
+You can easily run the app on a real Android device, too.
+Simply connect your Android phone to your machine via USB and enable the "Developer Options" as described here:
+https://developer.android.com/studio/debug/dev-options
+
+Once enabled, check "USB Debugging" in the "Developer Options" and you're good to go and should be able to run the app on your device
+by selecting it inside of Android Studio.
+
+- Running the App on iOS: https://ionicframework.com/docs/building/ios
+
+- Running the App on Android: https://ionicframework.com/docs/building/android
+
+- Official Capacitor Docs: https://capacitor.ionicframework.com/
+
+
+
+--------------------------------------------------------------------------------------
+						COMMON ISSUES
+--------------------------------------------------------------------------------------
 - Issue One
 	[ERROR] ng has unexpectedly closed (exit code 127).
   Resolution
@@ -29,19 +92,14 @@ Extensions Installed in VS
 	Cannot find module '@angular-devkit/build-angular/package.json'
   Resolution
 	npm install --save-dev @angular-devkit/build-angular
+- Issue Four
+	[error] Capacitor could not find the web assets directory "C:\Users\erahu\Documents\Learn\ionic demo\ionic-course\ionic-course\www".
+    Please create it and make sure it has an index.html file. You can change
+    the path of this directory in capacitor.config.json (webDir option).
+    You may need to compile the web assets for your app (typically 'npm run build').
+  Resolution
+	This happens since we have not yet build the appln before. We need to execute the build command to resolve this Issue
+		ng build
+	So when ever we are going to build a native app, we need to execute the ng build command. Because we are going to wrap our finished
+	mobile app into a native mobile app.	
 	
-Generating modules using angular cli
-	Component
-	- ng generate component recipies
-
-Generating modules using ionic cli
-	General command
-	- ionic generate
-		opens the wizard to complete the setup
-	Page	
-	- ionic generate page recipies/recipie-detail	
-	Service
-	- 
-
-Ionic Icons
-	- https://ionicons.com/
