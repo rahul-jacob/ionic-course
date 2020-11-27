@@ -67,6 +67,12 @@ by selecting it inside of Android Studio.
 
 - Official Capacitor Docs: https://capacitor.ionicframework.com/
 
+- Adding break points when executing from Emulator or Native Device
+	In the chrome browser, type chrome://inspect then we can see the Ionic App and its running through an emulator. Below the Ionic App
+	we have an inspect link. Click on the link. This should open up a new window where you can see the console logs and its not connected
+	to your device.
+	
+- Learn more about the Chrome dev tools: https://developers.google.com/web/tools/chrome-devtools/
 
 
 --------------------------------------------------------------------------------------
